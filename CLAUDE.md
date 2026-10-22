@@ -39,7 +39,7 @@ como referência de arquitetura e deploy.
 ```
 index.html            home
 o-complexo/ especialidades/ atendimento/ unidades/ duvidas/ contato/ ouvidoria/
-trabalhe-conosco/ politica-de-privacidade/   páginas internas (pasta/index.html = URL limpa, iguais às do WP antigo)
+politica-de-privacidade/   páginas internas (pasta/index.html = URL limpa, iguais às do WP antigo)
 404.html              erro (usa <base> calculado: funciona no Pages e em produção)
 partials/             topo.html (sprite + menu) e rodape.html, compartilhados
 tools/partials.mjs    aplica os partials em todas as páginas: RODAR após mudar partials/ ou criar página
@@ -81,6 +81,6 @@ Fotos/ Fotos-POA/ Imagens/ reels/   originais do cliente (fora do git)
 - Logo em alta resolução (o atual tem 300×150 px) e, se possível, em SVG.
 - Fotos de Canoas em resolução maior (as atuais têm 375×500 px).
 - Credenciais FTP de produção.
-- E-mails da Ouvidoria e do Trabalhe conosco (os dois formulários hoje vão para atendimento@complexotea.com.br) e e-mail do DPO.
+- E-mail da Ouvidoria (hoje vai para atendimento@complexotea.com.br) e e-mail do DPO.
 - Validar com a equipe o texto de "O que acontece na avaliação" (/atendimento/) e a Política de
   Privacidade (revisão jurídica).

@@ -42,7 +42,7 @@ for (const arq of paginas(ROOT)) {
     let bloco = conteudo.replaceAll('{{base}}', base).replaceAll('{{inicio}}', inicio);
     // marca o link da página atual no menu
     if (pagina) {
-      bloco = bloco.replace(new RegExp(`class="((?:nav|menu)__link[^"]*)"([^>]*data-pagina="${pagina}")`, 'g'), 'class="$1 is-ativo" aria-current="page"$2');
+      bloco = bloco.replace(new RegExp(`class="(nav__link|menu__link)"([^>]*data-pagina="${pagina}")`, 'g'), 'class="$1 is-ativo" aria-current="page"$2');
     }
     html = html.replace(re, `$1\n${bloco}\n  $2`);
     mudou = true;
