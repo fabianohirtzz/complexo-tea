@@ -23,6 +23,7 @@ const navLinks = [...links.querySelectorAll('.nav__link')];
 const linkAtivo = links.querySelector('.is-ativo');
 
 function moveBlob(link) {
+  navLinks.forEach((l) => l.classList.toggle('is-sob-blob', l === link));
   if (!link) { links.classList.remove('tem-blob'); return; }
   const cor = getComputedStyle(link).getPropertyValue('--c');
   blob.style.setProperty('--x', link.offsetLeft + 'px');
@@ -67,11 +68,14 @@ const obsRevela = new IntersectionObserver((entradas) => {
 document.querySelectorAll('.revela, [data-trilha]').forEach((el) => obsRevela.observe(el));
 
 /* ---------- Faixa de especialidades: duplica para loop contínuo ---------- */
-const faixa = document.querySelector('[data-faixa]');
-if (faixa && !reduz) {
-  const copia = faixa.firstElementChild.cloneNode(true);
-  copia.setAttribute('aria-hidden', 'true');
-  faixa.appendChild(copia);
+if (!reduz) {
+  document.querySelectorAll('[data-faixa]').forEach((faixa) => {
+    const copia = faixa.firstElementChild.cloneNode(true);
+    copia.setAttribute('aria-hidden', 'true');
+    // a cópia é só visual: links fora da ordem de tabulação
+    copia.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+    faixa.appendChild(copia);
+  });
 }
 
 /* ---------- Abas das unidades ---------- */

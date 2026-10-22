@@ -150,7 +150,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: color .3s;
 }
 .nav__link:nth-of-type(odd) { --c: var(--laranja-esc); }
-.nav__link.is-ativo, .nav__link:hover { color: #fff; }
+/* texto branco só no link que está com a pílula embaixo (o JS marca .is-sob-blob) */
+.nav__link.is-sob-blob { color: #fff; }
+html:not(.js) .nav__link.is-ativo { color: var(--laranja-esc); }
 .nav__blob {
   position: absolute; z-index: 0; top: 0; left: 0; height: 100%;
   width: var(--w, 0); transform: translateX(var(--x, 0));
@@ -652,6 +654,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .atalhos a svg { width: 22px; height: 22px; fill: var(--c); }
 .atalhos a:hover { border-color: var(--laranja); transform: translateY(-3px); }
+
+/* atalhos em faixa contínua (especialidades): pausa com o mouse ou o foco */
+.atalhos--faixa {
+  display: block; overflow: hidden; padding: 8px 0;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.atalhos__trilho { display: flex; width: max-content; animation: corre 45s linear infinite; }
+.atalhos--faixa:hover .atalhos__trilho, .atalhos--faixa:focus-within .atalhos__trilho { animation-play-state: paused; }
+.atalhos__lista { display: flex; flex: none; gap: 12px; padding-right: 12px; }
+.atalhos__lista a { white-space: nowrap; font-size: 1.05rem; padding: .7em 1.25em .7em .85em; }
+.atalhos__lista a svg { width: 26px; height: 26px; }
+@media (prefers-reduced-motion: reduce) { .atalhos__trilho { animation: none !important; flex-wrap: wrap; width: auto; padding-inline: 20px; } .atalhos--faixa { -webkit-mask: none; mask: none; } }
 
 /* especialidades detalhadas */
 .esp-lista { display: grid; gap: 22px; }
