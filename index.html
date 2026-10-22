@@ -24,8 +24,8 @@
   <link rel="apple-touch-icon" href="assets/img/marca/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/img/poa/recepcao.webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/super-comic.woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
@@ -40,6 +40,7 @@
     <symbol id="ic-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></g></symbol>
     <symbol id="ic-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 16.4v2.8a1.9 1.9 0 0 1-2 1.9 18.6 18.6 0 0 1-8.1-2.9 18.3 18.3 0 0 1-5.6-5.6A18.6 18.6 0 0 1 2.4 4.5 1.9 1.9 0 0 1 4.3 2.4h2.8a1.9 1.9 0 0 1 1.9 1.6c.1.9.3 1.8.7 2.6a1.9 1.9 0 0 1-.4 2L8 9.8a15 15 0 0 0 5.6 5.6l1.2-1.2a1.9 1.9 0 0 1 2-.4c.8.3 1.7.6 2.6.7a1.9 1.9 0 0 1 1.6 1.9z"/></symbol>
     <symbol id="ic-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.1l-5.6 3 1.1-6.3L2.9 9.4l6.3-.9z"/></symbol>
+    <symbol id="ic-seta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7"/></symbol>
     <symbol id="ic-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></symbol>
     <symbol id="ic-som" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></g></symbol>
     <symbol id="ic-mudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></g></symbol>
@@ -83,7 +84,7 @@
       <a class="menu__link" href="#duvidas" style="--i:4" data-cor="amarelo">Dúvidas</a>
     </nav>
     <div class="menu__foot" style="--i:5">
-      <a class="btn btn--amarelo btn--full" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar avaliação</a>
+      <a class="btn btn--laranja btn--full" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar avaliação</a>
       <a class="menu__contato" href="tel:+555134111008"><svg aria-hidden="true"><use href="#ic-phone"/></svg>(51) 3411-1008</a>
       <a class="menu__contato" href="https://www.instagram.com/complexotea" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ic-insta"/></svg>@complexotea</a>
     </div>
@@ -110,14 +111,16 @@
         </div>
 
         <div class="hero__arte" aria-hidden="true">
-          <div class="hero__foto">
-            <img src="assets/img/poa/recepcao.webp" alt="" width="900" height="1200" fetchpriority="high" />
+          <div class="hero__disco">
+            <span class="hero__anel hero__anel--1"></span>
+            <span class="hero__anel hero__anel--2"></span>
           </div>
+          <img class="hero__kids" src="assets/img/ilustra/o-complexo.webp" alt="" width="500" height="500" fetchpriority="high" />
           <svg class="hpeca hpeca--laranja"><use href="#peca"/></svg>
           <svg class="hpeca hpeca--roxo"><use href="#peca"/></svg>
           <svg class="hpeca hpeca--amarelo"><use href="#peca"/></svg>
           <svg class="hpeca hpeca--verde"><use href="#peca"/></svg>
-          <img class="hero__kids" src="assets/img/ilustra/sobre7.webp" alt="" width="500" height="389" />
+          <svg class="hpeca hpeca--azul"><use href="#peca"/></svg>
           <p class="hero__selo"><b>1º</b> centro de diagnóstico de autismo do RS</p>
         </div>
       </div>
@@ -141,7 +144,7 @@
           <img class="complexo__ilus" src="assets/img/ilustra/prof3.webp" alt="" width="500" height="500" loading="lazy" />
         </figure>
         <div class="complexo__texto">
-          <h2 class="titulo revela" id="complexo-titulo">Um centro inteiro pensado para o neurodesenvolvimento</h2>
+          <h2 class="titulo revela" id="complexo-titulo">Um centro pensado para o desenvolvimento de cada criança</h2>
           <p class="revela">O Complexo TEA é dedicado a crianças e jovens com Transtorno do Espectro Autista e outras condições do neurodesenvolvimento. Cada pessoa chega com uma história própria, então o cuidado também é individual: avaliação completa, plano sob medida e uma equipe que conversa entre si.</p>
           <p class="revela">Técnica e acolhimento andam juntos. Trabalhamos com práticas baseadas em evidências e com salas preparadas para cada objetivo, da integração sensorial ao treino das atividades do dia a dia.</p>
           <ul class="diferenciais">
@@ -216,29 +219,31 @@
 
     <!-- ============================ FAMÍLIA ============================ -->
     <section class="sec familia" aria-labelledby="familia-titulo">
-      <div class="container familia__grid">
-        <div class="familia__texto">
-          <h2 class="titulo titulo--claro revela" id="familia-titulo">A família faz parte da terapia</h2>
-          <p class="revela">O desenvolvimento acontece também em casa, na escola e na pracinha. Por isso pais e cuidadores recebem orientação prática para levar adiante o que é trabalhado nas sessões.</p>
-          <dl class="abordagens">
-            <div class="abordagem revela"><dt>Terapia ABA</dt><dd>Ensino de habilidades em pequenos passos, com reforço positivo e metas medidas a cada sessão.</dd></div>
-            <div class="abordagem revela"><dt>Modelo Denver</dt><dd>Intervenção precoce que usa a brincadeira e a rotina para estimular comunicação e interação.</dd></div>
-            <div class="abordagem revela"><dt>Ambiente naturalístico</dt><dd>Salas que simulam a vida real, para o aprendizado sair da clínica e chegar ao dia a dia.</dd></div>
-          </dl>
+      <div class="container">
+        <div class="familia__painel revela">
+          <svg class="familia__deco familia__deco--1" aria-hidden="true"><use href="#peca"/></svg>
+          <svg class="familia__deco familia__deco--2" aria-hidden="true"><use href="#peca"/></svg>
+          <div class="familia__texto">
+            <h2 class="titulo titulo--claro" id="familia-titulo">A família faz parte da terapia</h2>
+            <p>O desenvolvimento acontece também em casa, na escola e na pracinha. Por isso pais e cuidadores recebem orientação prática para levar adiante o que é trabalhado nas sessões.</p>
+          </div>
+          <img class="familia__ilus" src="assets/img/ilustra/atendimento6.webp" alt="" width="600" height="429" loading="lazy" />
         </div>
-        <figure class="familia__arte revela">
-          <img src="assets/img/ilustra/atendimento6.webp" alt="" width="600" height="429" loading="lazy" />
-        </figure>
+        <dl class="abordagens">
+          <div class="abordagem revela" data-cor="laranja"><svg class="abordagem__peca" aria-hidden="true"><use href="#peca"/></svg><dt>Terapia ABA</dt><dd>Ensino de habilidades em pequenos passos, com reforço positivo e metas medidas a cada sessão.</dd></div>
+          <div class="abordagem revela" data-cor="verde" style="--d:.1s"><svg class="abordagem__peca" aria-hidden="true"><use href="#peca"/></svg><dt>Modelo Denver</dt><dd>Intervenção precoce que usa a brincadeira e a rotina para estimular comunicação e interação.</dd></div>
+          <div class="abordagem revela" data-cor="azul" style="--d:.2s"><svg class="abordagem__peca" aria-hidden="true"><use href="#peca"/></svg><dt>Ambiente naturalístico</dt><dd>Salas que simulam a vida real, para o aprendizado sair da clínica e chegar ao dia a dia.</dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- ============================ UNIDADES ============================ -->
     <section class="sec unidades" id="unidades" aria-labelledby="uni-titulo">
       <div class="container">
-        <div class="cabeca unidades__cabeca">
+        <div class="cabeca cabeca--linha">
           <div>
-            <h2 class="titulo revela" id="uni-titulo">Duas unidades na Grande Porto Alegre</h2>
-            <p class="cabeca__lede revela">Escolha a mais perto de você e veja os espaços por dentro.</p>
+            <h2 class="titulo revela" id="uni-titulo">Duas unidades: Canoas e Porto Alegre</h2>
+            <p class="cabeca__lede revela">Escolha a mais perto de você e conheça os espaços por dentro.</p>
           </div>
           <div class="abas revela" role="tablist" aria-label="Unidades" data-abas>
             <span class="abas__marca" aria-hidden="true" data-abas-marca></span>
@@ -249,71 +254,77 @@
 
         <article class="unidade" id="painel-poa" role="tabpanel" aria-labelledby="aba-poa">
           <div class="unidade__info">
-            <h3 class="unidade__nome">Complexo TEA Porto Alegre</h3>
-            <p class="unidade__end"><svg aria-hidden="true"><use href="#ic-pin"/></svg><span>Av. Eduardo Prado, 2091, Conjunto 301<br />Ipanema, Porto Alegre, RS · CEP 91751-000</span></p>
-            <ul class="unidade__salas">
-              <li>Sala sensorial</li><li>Sala de AVD</li><li>Salas de atendimento</li><li>Área externa coberta</li><li>Banheiro PCD e fraldário</li><li>Elevador</li>
-            </ul>
+            <svg class="unidade__deco" aria-hidden="true"><use href="#peca"/></svg>
+            <h3 class="unidade__nome">Porto Alegre</h3>
+            <p class="unidade__end"><svg aria-hidden="true"><use href="#ic-pin"/></svg><span>Av. Eduardo Prado, 2091, Conjunto 301<br />Ipanema, Porto Alegre, RS<br />CEP 91751-000</span></p>
+            <ul class="unidade__salas"><li>Sala sensorial</li><li>Sala de AVD</li><li>Salas de atendimento</li><li>Área externa</li><li>Banheiro PCD e fraldário</li><li>Elevador</li></ul>
             <div class="unidade__acoes">
-              <a class="btn btn--azul" href="https://www.google.com/maps/search/?api=1&amp;query=Complexo+TEA+Av.+Eduardo+Prado+2091+Porto+Alegre" target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-pin"/></svg>Ver no mapa</a>
-              <a class="btn btn--linha" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20unidade%20Porto%20Alegre." target="_blank" rel="noopener">Agendar nesta unidade</a>
+              <a class="btn btn--laranja" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20unidade%20Porto%20Alegre." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar nesta unidade</a>
+              <a class="btn btn--claro" href="https://www.google.com/maps/search/?api=1&amp;query=Complexo+TEA+Av.+Eduardo+Prado+2091+Porto+Alegre" target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-pin"/></svg>Ver no mapa</a>
             </div>
           </div>
-          <ul class="galeria" data-galeria>
-            <li><img src="assets/img/poa/recepcao.webp" alt="Recepção da unidade Porto Alegre" width="900" height="1200" loading="lazy" /><span>Recepção</span></li>
-            <li><img src="assets/img/poa/sala-sensorial.webp" alt="Sala sensorial com tatame, balanço e escada" width="900" height="1200" loading="lazy" /><span>Sala sensorial</span></li>
-            <li><img src="assets/img/poa/sala-de-espera.webp" alt="Sala de espera ampla e iluminada" width="900" height="1200" loading="lazy" /><span>Sala de espera</span></li>
-            <li><img src="assets/img/poa/sala-de-avd.webp" alt="Sala de atividades de vida diária" width="900" height="1200" loading="lazy" /><span>Sala de AVD</span></li>
-            <li><img src="assets/img/poa/sala-de-atendimento.webp" alt="Sala de atendimento com mesa infantil" width="900" height="1200" loading="lazy" /><span>Sala de atendimento</span></li>
-            <li><img src="assets/img/poa/area-externa.webp" alt="Área externa com grama sintética e tela de proteção" width="900" height="1200" loading="lazy" /><span>Área externa</span></li>
-            <li><img src="assets/img/poa/banheiro-pcd-e-fraldario.webp" alt="Banheiro PCD com fraldário" width="900" height="1200" loading="lazy" /><span>Banheiro PCD e fraldário</span></li>
-            <li><img src="assets/img/poa/escala-com-tela-de-protecao.webp" alt="Escada com tela de proteção" width="900" height="1200" loading="lazy" /><span>Escada com tela de proteção</span></li>
-          </ul>
+          <div class="vitrine" data-vitrine>
+            <figure class="vitrine__palco">
+              <img class="vitrine__foto" src="assets/img/poa/recepcao.webp" alt="Recepção da unidade Porto Alegre com o logo do Complexo TEA" width="900" height="1200" loading="lazy" data-vitrine-foto />
+              <figcaption class="vitrine__legenda"><span data-vitrine-legenda>Recepção</span><b data-vitrine-conta>1 / 9</b></figcaption>
+              <button class="vitrine__seta vitrine__seta--ant" type="button" aria-label="Foto anterior" data-vitrine-ant><svg aria-hidden="true"><use href="#ic-seta"/></svg></button>
+              <button class="vitrine__seta vitrine__seta--prox" type="button" aria-label="Próxima foto" data-vitrine-prox><svg aria-hidden="true"><use href="#ic-seta"/></svg></button>
+            </figure>
+            <ul class="vitrine__minis"><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/recepcao.webp" data-legenda="Recepção" data-alt="Recepção da unidade Porto Alegre com o logo do Complexo TEA" aria-label="Ver foto: Recepção" aria-current="true"><img src="assets/img/poa/recepcao.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/sala-sensorial.webp" data-legenda="Sala sensorial" data-alt="Sala sensorial com tatame, balanço e escada de integração sensorial" aria-label="Ver foto: Sala sensorial"><img src="assets/img/poa/sala-sensorial.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/sala-de-espera.webp" data-legenda="Sala de espera" data-alt="Sala de espera ampla e iluminada" aria-label="Ver foto: Sala de espera"><img src="assets/img/poa/sala-de-espera.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/sala-de-avd.webp" data-legenda="Sala de AVD" data-alt="Sala de atividades de vida diária com cozinha e lavanderia de brinquedo" aria-label="Ver foto: Sala de AVD"><img src="assets/img/poa/sala-de-avd.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/sala-de-atendimento.webp" data-legenda="Sala de atendimento" data-alt="Sala de atendimento com mesa infantil" aria-label="Ver foto: Sala de atendimento"><img src="assets/img/poa/sala-de-atendimento.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/area-externa.webp" data-legenda="Área externa" data-alt="Área externa com grama sintética e tela de proteção" aria-label="Ver foto: Área externa"><img src="assets/img/poa/area-externa.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/banheiro-pcd-e-fraldario.webp" data-legenda="Banheiro PCD e fraldário" data-alt="Banheiro acessível com fraldário" aria-label="Ver foto: Banheiro PCD e fraldário"><img src="assets/img/poa/banheiro-pcd-e-fraldario.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/escala-com-tela-de-protecao.webp" data-legenda="Escada com tela de proteção" data-alt="Escada com tela de proteção" aria-label="Ver foto: Escada com tela de proteção"><img src="assets/img/poa/escala-com-tela-de-protecao.webp" alt="" width="900" height="1200" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/poa/elevador.webp" data-legenda="Elevador" data-alt="Elevador de acesso à unidade" aria-label="Ver foto: Elevador"><img src="assets/img/poa/elevador.webp" alt="" width="900" height="1200" loading="lazy" /></button></li></ul>
+          </div>
         </article>
 
         <article class="unidade" id="painel-canoas" role="tabpanel" aria-labelledby="aba-canoas" hidden>
           <div class="unidade__info">
-            <h3 class="unidade__nome">Complexo TEA Canoas</h3>
-            <p class="unidade__end"><svg aria-hidden="true"><use href="#ic-pin"/></svg><span>Hub de Saúde Maxplaza<br />Av. Getúlio Vargas, 4831, Sala 306, Centro Clínico<br />Centro, Canoas, RS · CEP 92010-011</span></p>
-            <ul class="unidade__salas">
-              <li>Estacionamento próprio</li><li>Praça de alimentação</li><li>Sala sensorial</li><li>Sala de AVD</li><li>Sala de terapia alimentar</li><li>Espera infantil</li>
-            </ul>
+            <svg class="unidade__deco" aria-hidden="true"><use href="#peca"/></svg>
+            <h3 class="unidade__nome">Canoas</h3>
+            <p class="unidade__end"><svg aria-hidden="true"><use href="#ic-pin"/></svg><span>Hub de Saúde Maxplaza<br />Av. Getúlio Vargas, 4831, Sala 306<br />Centro, Canoas, RS · CEP 92010-011</span></p>
+            <ul class="unidade__salas"><li>Estacionamento próprio</li><li>Praça de alimentação</li><li>Sala sensorial</li><li>Sala de AVD</li><li>Sala de terapia alimentar</li><li>Espera infantil</li></ul>
             <div class="unidade__acoes">
-              <a class="btn btn--azul" href="https://www.google.com/maps/search/?api=1&amp;query=Complexo+TEA+Av.+Get%C3%BAlio+Vargas+4831+Canoas" target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-pin"/></svg>Ver no mapa</a>
-              <a class="btn btn--linha" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20unidade%20Canoas." target="_blank" rel="noopener">Agendar nesta unidade</a>
+              <a class="btn btn--laranja" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20unidade%20Canoas." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar nesta unidade</a>
+              <a class="btn btn--claro" href="https://www.google.com/maps/search/?api=1&amp;query=Complexo+TEA+Av.+Get%C3%BAlio+Vargas+4831+Canoas" target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-pin"/></svg>Ver no mapa</a>
             </div>
           </div>
-          <ul class="galeria" data-galeria>
-            <li class="galeria__larga"><img src="assets/img/canoas/maxplaza.webp" alt="Hub de Saúde Maxplaza em Canoas visto de cima" width="1200" height="673" loading="lazy" /><span>Hub de Saúde Maxplaza</span></li>
-            <li><img src="assets/img/canoas/img-2132.webp" alt="Sala de espera da unidade Canoas" width="375" height="500" loading="lazy" /><span>Sala de espera</span></li>
-            <li><img src="assets/img/canoas/img-2146.webp" alt="Sala de atendimento da unidade Canoas" width="375" height="500" loading="lazy" /><span>Sala de atendimento</span></li>
-            <li><img src="assets/img/canoas/img-2157.webp" alt="Sala de atendimento com sofá para a família" width="375" height="500" loading="lazy" /><span>Atendimento com a família</span></li>
-            <li><img src="assets/img/canoas/img-5172.webp" alt="Espaço de convivência com grama sintética" width="375" height="500" loading="lazy" /><span>Espaço de convivência</span></li>
-            <li><img src="assets/img/canoas/img-2143.webp" alt="Corredor das salas de atendimento" width="375" height="500" loading="lazy" /><span>Corredor das salas</span></li>
-            <li><img src="assets/img/canoas/img-3860.webp" alt="Copa da unidade Canoas" width="375" height="500" loading="lazy" /><span>Copa</span></li>
-          </ul>
+          <div class="vitrine" data-vitrine>
+            <figure class="vitrine__palco">
+              <img class="vitrine__foto" src="assets/img/canoas/img-2132.webp" alt="Sala de espera da unidade Canoas" width="375" height="500" loading="lazy" data-vitrine-foto />
+              <figcaption class="vitrine__legenda"><span data-vitrine-legenda>Sala de espera</span><b data-vitrine-conta>1 / 8</b></figcaption>
+              <button class="vitrine__seta vitrine__seta--ant" type="button" aria-label="Foto anterior" data-vitrine-ant><svg aria-hidden="true"><use href="#ic-seta"/></svg></button>
+              <button class="vitrine__seta vitrine__seta--prox" type="button" aria-label="Próxima foto" data-vitrine-prox><svg aria-hidden="true"><use href="#ic-seta"/></svg></button>
+            </figure>
+            <ul class="vitrine__minis"><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/img-2132.webp" data-legenda="Sala de espera" data-alt="Sala de espera da unidade Canoas" aria-label="Ver foto: Sala de espera" aria-current="true"><img src="assets/img/canoas/img-2132.webp" alt="" width="375" height="500" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/img-2146.webp" data-legenda="Sala de atendimento" data-alt="Sala de atendimento da unidade Canoas" aria-label="Ver foto: Sala de atendimento"><img src="assets/img/canoas/img-2146.webp" alt="" width="375" height="500" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/img-2157.webp" data-legenda="Atendimento com a família" data-alt="Sala de atendimento com sofá para a família" aria-label="Ver foto: Atendimento com a família"><img src="assets/img/canoas/img-2157.webp" alt="" width="375" height="500" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/img-5172.webp" data-legenda="Espaço de convivência" data-alt="Espaço de convivência com grama sintética" aria-label="Ver foto: Espaço de convivência"><img src="assets/img/canoas/img-5172.webp" alt="" width="375" height="500" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/img-2143.webp" data-legenda="Corredor das salas" data-alt="Corredor das salas de atendimento" aria-label="Ver foto: Corredor das salas"><img src="assets/img/canoas/img-2143.webp" alt="" width="375" height="500" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/img-3860.webp" data-legenda="Copa" data-alt="Copa da unidade Canoas" aria-label="Ver foto: Copa"><img src="assets/img/canoas/img-3860.webp" alt="" width="375" height="500" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/img-5171.webp" data-legenda="Espera do Hub de Saúde" data-alt="Área de espera do Hub de Saúde Maxplaza" aria-label="Ver foto: Espera do Hub de Saúde"><img src="assets/img/canoas/img-5171.webp" alt="" width="375" height="500" loading="lazy" /></button></li><li><button class="vitrine__mini" type="button" data-src="assets/img/canoas/maxplaza.webp" data-legenda="Hub de Saúde Maxplaza" data-alt="Hub de Saúde Maxplaza em Canoas visto de cima" aria-label="Ver foto: Hub de Saúde Maxplaza"><img src="assets/img/canoas/maxplaza.webp" alt="" width="1200" height="673" loading="lazy" /></button></li></ul>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- ============================ INSTAGRAM ============================ -->
     <section class="sec insta" aria-labelledby="insta-titulo">
-      <div class="container">
-        <div class="cabeca unidades__cabeca">
-          <div>
-            <h2 class="titulo revela" id="insta-titulo">O dia a dia no Instagram</h2>
-            <p class="cabeca__lede revela">Dicas para as famílias, bastidores das terapias e conquistas que a gente comemora junto.</p>
-          </div>
-          <a class="btn btn--insta revela" href="https://www.instagram.com/complexotea" target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-insta"/></svg>Seguir @complexotea</a>
+      <div class="container insta__grid">
+        <div class="insta__lado">
+          <h2 class="titulo revela" id="insta-titulo">O dia a dia no Instagram</h2>
+          <p class="cabeca__lede revela">Dicas para as famílias, bastidores das terapias e conquistas que a gente comemora junto.</p>
+          <a class="perfil revela" href="https://www.instagram.com/complexotea" target="_blank" rel="noopener">
+            <span class="perfil__foto"><img src="assets/img/marca/favicon.png" alt="" width="180" height="180" loading="lazy" /></span>
+            <span class="perfil__nome"><b>@complexotea</b>Canoas e Porto Alegre</span>
+            <span class="perfil__seguir"><svg aria-hidden="true"><use href="#ic-insta"/></svg>Seguir</span>
+          </a>
         </div>
-        <ul class="reels" data-reels>
-          <li class="reel revela" style="--d:0s"><video src="assets/video/reels/reel-1.mp4" poster="assets/video/reels/reel-1.webp" muted loop playsinline preload="none"></video><button class="reel__play" type="button" aria-label="Assistir vídeo 1"><svg aria-hidden="true"><use href="#ic-play"/></svg></button><button class="reel__som" type="button" aria-label="Ativar som" hidden><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
-          <li class="reel revela" style="--d:.08s"><video src="assets/video/reels/reel-2.mp4" poster="assets/video/reels/reel-2.webp" muted loop playsinline preload="none"></video><button class="reel__play" type="button" aria-label="Assistir vídeo 2"><svg aria-hidden="true"><use href="#ic-play"/></svg></button><button class="reel__som" type="button" aria-label="Ativar som" hidden><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
-          <li class="reel revela" style="--d:.16s"><video src="assets/video/reels/reel-3.mp4" poster="assets/video/reels/reel-3.webp" muted loop playsinline preload="none"></video><button class="reel__play" type="button" aria-label="Assistir vídeo 3"><svg aria-hidden="true"><use href="#ic-play"/></svg></button><button class="reel__som" type="button" aria-label="Ativar som" hidden><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
-          <li class="reel revela" style="--d:.24s"><video src="assets/video/reels/reel-4.mp4" poster="assets/video/reels/reel-4.webp" muted loop playsinline preload="none"></video><button class="reel__play" type="button" aria-label="Assistir vídeo 4"><svg aria-hidden="true"><use href="#ic-play"/></svg></button><button class="reel__som" type="button" aria-label="Ativar som" hidden><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
-          <li class="reel revela" style="--d:.32s"><video src="assets/video/reels/reel-5.mp4" poster="assets/video/reels/reel-5.webp" muted loop playsinline preload="none"></video><button class="reel__play" type="button" aria-label="Assistir vídeo 5"><svg aria-hidden="true"><use href="#ic-play"/></svg></button><button class="reel__som" type="button" aria-label="Ativar som" hidden><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
-          <li class="reel revela" style="--d:.4s"><video src="assets/video/reels/reel-6.mp4" poster="assets/video/reels/reel-6.webp" muted loop playsinline preload="none"></video><button class="reel__play" type="button" aria-label="Assistir vídeo 6"><svg aria-hidden="true"><use href="#ic-play"/></svg></button><button class="reel__som" type="button" aria-label="Ativar som" hidden><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
-        </ul>
+        <div class="carrossel revela" data-carrossel aria-roledescription="carrossel" aria-label="Vídeos do Instagram">
+          <ul class="carrossel__palco">
+            <li class="reel" data-reel><video src="assets/video/reels/reel-1.mp4" poster="assets/video/reels/reel-1.webp" muted loop playsinline preload="none" aria-label="Vídeo 1 do Instagram do Complexo TEA"></video><button class="reel__som" type="button" aria-label="Ativar som"><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
+            <li class="reel" data-reel><video src="assets/video/reels/reel-2.mp4" poster="assets/video/reels/reel-2.webp" muted loop playsinline preload="none" aria-label="Vídeo 2 do Instagram do Complexo TEA"></video><button class="reel__som" type="button" aria-label="Ativar som"><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
+            <li class="reel" data-reel><video src="assets/video/reels/reel-3.mp4" poster="assets/video/reels/reel-3.webp" muted loop playsinline preload="none" aria-label="Vídeo 3 do Instagram do Complexo TEA"></video><button class="reel__som" type="button" aria-label="Ativar som"><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
+            <li class="reel" data-reel><video src="assets/video/reels/reel-4.mp4" poster="assets/video/reels/reel-4.webp" muted loop playsinline preload="none" aria-label="Vídeo 4 do Instagram do Complexo TEA"></video><button class="reel__som" type="button" aria-label="Ativar som"><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
+            <li class="reel" data-reel><video src="assets/video/reels/reel-5.mp4" poster="assets/video/reels/reel-5.webp" muted loop playsinline preload="none" aria-label="Vídeo 5 do Instagram do Complexo TEA"></video><button class="reel__som" type="button" aria-label="Ativar som"><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
+            <li class="reel" data-reel><video src="assets/video/reels/reel-6.mp4" poster="assets/video/reels/reel-6.webp" muted loop playsinline preload="none" aria-label="Vídeo 6 do Instagram do Complexo TEA"></video><button class="reel__som" type="button" aria-label="Ativar som"><svg aria-hidden="true"><use href="#ic-mudo"/></svg></button></li>
+          </ul>
+          <div class="carrossel__controles">
+            <button class="carrossel__seta carrossel__seta--ant" type="button" aria-label="Vídeo anterior" data-carrossel-ant><svg aria-hidden="true"><use href="#ic-seta"/></svg></button>
+            <div class="carrossel__pontos"><button class="carrossel__ponto" type="button" aria-label="Vídeo 1" data-ponto="0"></button><button class="carrossel__ponto" type="button" aria-label="Vídeo 2" data-ponto="1"></button><button class="carrossel__ponto" type="button" aria-label="Vídeo 3" data-ponto="2"></button><button class="carrossel__ponto" type="button" aria-label="Vídeo 4" data-ponto="3"></button><button class="carrossel__ponto" type="button" aria-label="Vídeo 5" data-ponto="4"></button><button class="carrossel__ponto" type="button" aria-label="Vídeo 6" data-ponto="5"></button></div>
+            <button class="carrossel__seta" type="button" aria-label="Próximo vídeo" data-carrossel-prox><svg aria-hidden="true"><use href="#ic-seta"/></svg></button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -364,7 +375,7 @@
         <div class="cta__texto">
           <h2 class="cta__titulo" id="cta-titulo">Notou algo diferente no desenvolvimento do seu filho?</h2>
           <p>Conversar cedo faz diferença. Mande uma mensagem e a nossa equipe explica como funciona a avaliação.</p>
-          <a class="btn btn--amarelo btn--lg" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar avaliação</a>
+          <a class="btn btn--branco btn--lg" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar avaliação</a>
         </div>
         <img class="cta__ilus" src="assets/img/ilustra/sobre8.webp" alt="" width="500" height="389" loading="lazy" />
       </div>

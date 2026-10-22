@@ -19,12 +19,18 @@ como referência de arquitetura e deploy.
 
 ## Design
 
-- Cores (peças do logo): laranja `#F25C05` (texto/botão usa `#C94A00` por contraste), roxo
-  `#48038C`, amarelo `#F0C908`, verde `#82A406`, azul `#15779B`; tinta `#24103D`, papel `#F6F2FB`.
-- Tipografia: Fredoka (títulos) × Nunito (texto), via Google Fonts.
-- Motivo central: a peça de quebra-cabeça do logo (`<symbol id="peca">`). Cada componente recebe
-  `data-cor="laranja|roxo|amarelo|verde|azul"` e lê `--c`.
-- Animação principal: no hero as 4 peças voam e se encaixam em volta da foto da recepção.
+- **Cores da interface: só roxo `#48038C` e laranja `#F25C05`** (texto/botão laranja usa `#C94A00`
+  por contraste), mais neutros (tinta `#24103D`, papel `#F6F2FB`). Decisão do cliente.
+- **Só as peças de quebra-cabeça são multicoloridas** (amarelo `#F0C908`, verde `#82A406`, azul
+  `#15779B` existem apenas como `--p-*` para preencher peças).
+- Tipografia: **Super Comic** (títulos, fonte do cliente, só caixa alta, `assets/fonts/super-comic.woff2`)
+  × Nunito (texto e menu). A Super Comic é larga: evitar palavras longas em títulos no mobile.
+- Motivo central: a peça de quebra-cabeça do logo (`<symbol id="peca">`, `--peca-mask` em CSS).
+  Cada peça recebe `data-cor` e lê `--c`. O desenho ocupa ~60% do viewBox: para peça grande,
+  deixar o svg vazar a caixa (ver `.etapa__num`).
+- Hero sem foto (cliente não gostou): disco roxo + crianças ilustradas + 5 peças que se encaixam.
+- Unidades: painel roxo + foto grande com setas + mosaico de miniaturas. Instagram: carrossel em
+  leque, o reel do centro toca mudo quando a seção está na tela.
   Demais: blob deslizante no menu, menu mobile em círculo, faixa de especialidades, linha da
   trilha que se desenha, revelar ao rolar, peças flutuando no rodapé. `prefers-reduced-motion` respeitado.
 

@@ -116,36 +116,106 @@ if (abas) {
   document.fonts && document.fonts.ready.then(() => posiciona(atual()));
 }
 
-/* ---------- Reels: um toca por vez, com som opcional ---------- */
-const reels = [...document.querySelectorAll('.reel')];
-function para(reel) {
-  const v = reel.querySelector('video');
-  v.pause();
-  reel.classList.remove('is-tocando');
-}
-reels.forEach((reel) => {
-  const v = reel.querySelector('video');
-  const play = reel.querySelector('.reel__play');
-  const som = reel.querySelector('.reel__som');
-  const tocar = () => {
-    reels.forEach((r) => r !== reel && para(r));
-    v.play();
-    reel.classList.add('is-tocando');
-    som.hidden = false;
+/* ---------- Galeria das unidades: foto grande + miniaturas ---------- */
+document.querySelectorAll('[data-vitrine]').forEach((vitrine) => {
+  const foto = vitrine.querySelector('[data-vitrine-foto]');
+  const legenda = vitrine.querySelector('[data-vitrine-legenda]');
+  const conta = vitrine.querySelector('[data-vitrine-conta]');
+  const minis = [...vitrine.querySelectorAll('.vitrine__mini')];
+  let atual = 0;
+  const mostra = (i) => {
+    atual = (i + minis.length) % minis.length;
+    const m = minis[atual];
+    minis.forEach((b) => b.removeAttribute('aria-current'));
+    m.setAttribute('aria-current', 'true');
+    foto.classList.add('is-trocando');
+    const nova = new Image();
+    nova.src = m.dataset.src;
+    const troca = () => {
+      foto.src = m.dataset.src;
+      foto.alt = m.dataset.alt;
+      legenda.textContent = m.dataset.legenda;
+      conta.textContent = `${atual + 1} / ${minis.length}`;
+      requestAnimationFrame(() => foto.classList.remove('is-trocando'));
+    };
+    nova.decode().then(troca, troca);
   };
-  play.addEventListener('click', () => { v.muted = false; atualizaSom(); tocar(); });
-  v.addEventListener('click', () => (v.paused ? tocar() : para(reel)));
-  const atualizaSom = () => {
+  minis.forEach((m, i) => m.addEventListener('click', () => mostra(i)));
+  vitrine.querySelector('[data-vitrine-ant]').addEventListener('click', () => mostra(atual - 1));
+  vitrine.querySelector('[data-vitrine-prox]').addEventListener('click', () => mostra(atual + 1));
+});
+
+/* ---------- Reels: carrossel em leque, o do centro toca ---------- */
+const carrossel = document.querySelector('[data-carrossel]');
+if (carrossel) {
+  const reels = [...carrossel.querySelectorAll('[data-reel]')];
+  const pontos = [...carrossel.querySelectorAll('[data-ponto]')];
+  const n = reels.length;
+  let ativo = 0;
+  let naTela = false;
+
+  const atualizaSom = (reel) => {
+    const v = reel.querySelector('video');
+    const som = reel.querySelector('.reel__som');
     som.setAttribute('aria-label', v.muted ? 'Ativar som' : 'Desativar som');
     som.querySelector('use').setAttribute('href', v.muted ? '#ic-mudo' : '#ic-som');
   };
-  som.addEventListener('click', () => { v.muted = !v.muted; atualizaSom(); });
-});
-// pausa o que sair da tela
-const obsReel = new IntersectionObserver((entradas) => {
-  entradas.forEach((e) => { if (!e.isIntersecting) para(e.target); });
-}, { threshold: 0.2 });
-reels.forEach((r) => obsReel.observe(r));
+
+  const posiciona = (i) => {
+    ativo = (i + n) % n;
+    reels.forEach((reel, j) => {
+      let pos = j - ativo;
+      if (pos > n / 2) pos -= n;
+      if (pos < -n / 2) pos += n;
+      reel.dataset.pos = Math.abs(pos) <= 2 ? pos : 'fora';
+      const v = reel.querySelector('video');
+      if (pos === 0) {
+        if (naTela && !reduz) v.play().catch(() => {});
+      } else {
+        v.pause();
+        v.muted = true;
+        atualizaSom(reel);
+      }
+    });
+    pontos.forEach((p, j) => (j === ativo ? p.setAttribute('aria-current', 'true') : p.removeAttribute('aria-current')));
+  };
+
+  reels.forEach((reel, j) => {
+    const v = reel.querySelector('video');
+    reel.addEventListener('click', (e) => {
+      if (e.target.closest('.reel__som')) return;
+      if (j !== ativo) return posiciona(j);
+      v.paused ? v.play() : v.pause();
+    });
+    reel.querySelector('.reel__som').addEventListener('click', () => {
+      v.muted = !v.muted;
+      if (v.paused) v.play().catch(() => {});
+      atualizaSom(reel);
+    });
+  });
+  pontos.forEach((p, j) => p.addEventListener('click', () => posiciona(j)));
+  carrossel.querySelector('[data-carrossel-ant]').addEventListener('click', () => posiciona(ativo - 1));
+  carrossel.querySelector('[data-carrossel-prox]').addEventListener('click', () => posiciona(ativo + 1));
+
+  // arrastar no celular
+  let x0 = null;
+  carrossel.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+  carrossel.addEventListener('pointerup', (e) => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 40) posiciona(ativo + (dx < 0 ? 1 : -1));
+  });
+
+  // só toca com a seção na tela
+  new IntersectionObserver(([e]) => {
+    naTela = e.isIntersecting;
+    const v = reels[ativo].querySelector('video');
+    if (naTela && !reduz) v.play().catch(() => {}); else v.pause();
+  }, { threshold: 0.35 }).observe(carrossel);
+
+  posiciona(0);
+}
 
 /* ---------- Ano no rodapé ---------- */
 document.querySelectorAll('[data-ano]').forEach((el) => { el.textContent = new Date().getFullYear(); });
