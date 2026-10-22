@@ -214,8 +214,14 @@ if (carrossel) {
 /* ---------- Formulário (Ouvidoria): envia pelo FormSubmit e volta com ?enviado=1 ---------- */
 document.querySelectorAll('[data-form]').forEach((form) => {
   const next = form.querySelector('[data-form-next]');
-  if (next) next.value = location.href.split(/[?#]/)[0] + '?enviado=1#manifestacao';
+  if (next) next.value = location.href.split(/[?#]/)[0] + '?enviado=1#' + form.closest('section').id;
   form.addEventListener('submit', (e) => {
+    // limite de tamanho dos anexos (data-max-mb)
+    form.querySelectorAll('input[type="file"][data-max-mb]').forEach((inp) => {
+      const max = parseFloat(inp.dataset.maxMb) * 1024 * 1024;
+      const grande = [...(inp.files || [])].some((f) => f.size > max);
+      inp.setCustomValidity(grande ? `O arquivo precisa ter até ${inp.dataset.maxMb} MB.` : '');
+    });
     if (!form.checkValidity()) { e.preventDefault(); form.reportValidity(); return; }
     const btn = form.querySelector('[type="submit"]');
     btn.disabled = true;
