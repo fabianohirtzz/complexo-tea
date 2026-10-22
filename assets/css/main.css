@@ -94,7 +94,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn--full { width: 100%; }
 .btn--roxo { --bg: var(--roxo); }
 .btn--laranja { --bg: var(--laranja-esc); }
-.btn--branco { --bg: #fff; --fg: var(--roxo); --sb: rgba(36, 16, 61, .35); }
+.btn--branco { --bg: #fff; --fg: var(--laranja-esc); --sb: rgba(36, 16, 61, .35); }
 .btn--claro { --bg: transparent; --fg: #fff; --bd: rgba(255, 255, 255, .55); box-shadow: none; }
 .btn--claro:hover { --bg: #fff; --fg: var(--roxo); --bd: #fff; box-shadow: none; }
 .btn--linha { --bg: transparent; --fg: var(--roxo); --bd: var(--roxo); box-shadow: none; }
@@ -146,7 +146,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   --c: var(--roxo);
   position: relative; z-index: 1;
   padding: .7em 1em; border-radius: 999px;
-  font: 800 1rem/1 var(--f-texto); color: var(--tinta); text-decoration: none;
+  font: 800 1rem/1 var(--f-texto); color: var(--tinta); text-decoration: none; white-space: nowrap;
   transition: color .3s;
 }
 .nav__link:nth-of-type(odd) { --c: var(--laranja-esc); }
@@ -161,7 +161,8 @@ html:not(.js) .nav__link.is-ativo { color: var(--laranja-esc); }
   transition: transform .5s var(--mola), width .5s var(--mola), background-color .3s, opacity .25s;
 }
 .nav__links.tem-blob .nav__blob { opacity: 1; }
-.nav__cta { margin-left: 4px; }
+.nav__cta { margin-left: 4px; white-space: nowrap; flex: none; }
+.nav__brand, .nav__links { flex: none; }
 
 .nav__burger {
   display: none; margin-left: auto;
@@ -607,7 +608,13 @@ html:not(.js) .nav__link.is-ativo { color: var(--laranja-esc); }
 .hero--pagina { padding-bottom: clamp(48px, 7vw, 80px); }
 .hero--pagina .hero__titulo { font-size: clamp(1.8rem, 1.1rem + 2.1vw, 2.6rem); max-width: 22ch; margin-top: 18px; }
 .hero--pagina .hero__arte { max-width: 440px; }
-.hero--pagina .hero__kids { width: 64%; left: 18%; bottom: 6%; }
+/* personagem recortado (assets/img/ilustra/recorte): dimensionado pela altura, centrado e apoiado embaixo */
+.hero--pagina .hero__kids {
+  left: 0; right: 0; bottom: 5%; margin-inline: auto;
+  width: auto; height: 80%; max-width: 86%;
+  object-fit: contain; object-position: center bottom;
+}
+.hero--pagina .hero__titulo { margin-top: 0; }
 .migalhas { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: .9rem; font-weight: 700; color: var(--texto); }
 .migalhas a { color: var(--roxo); text-decoration: none; }
 .migalhas a:hover { color: var(--laranja-esc); text-decoration: underline; }
@@ -807,6 +814,13 @@ a.card { display: block; text-decoration: none; color: inherit; }
 }
 
 /* ================================ RESPONSIVO ================================ */
+/* menu compacto em notebooks estreitos: os 7 links + botão precisam de ~1170px */
+@media (max-width: 1219px) {
+  .nav__bar { gap: 12px; padding-left: 14px; }
+  .nav__brand img { width: 96px; }
+  .nav__link { font-size: .92rem; padding-inline: .65em; }
+  .nav__cta { font-size: .95rem; padding: .75em 1.1em; }
+}
 @media (max-width: 1100px) {
   .nav__links, .nav__cta { display: none; }
   .nav__burger { display: block; }
