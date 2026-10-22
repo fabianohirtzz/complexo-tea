@@ -1,0 +1,45 @@
+name: Publicar em produção
+
+# Sobe o site para a hospedagem de complexotea.com.br por FTP.
+# O preview do GitHub Pages fica com noindex; aqui o noindex é trocado por index antes do envio.
+on:
+  workflow_dispatch:
+    inputs:
+      files:
+        description: 'Arquivos para publicar, separados por espaço (vazio = site inteiro)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-producao
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Liberar indexação (tirar o noindex do preview)
+        run: |
+          grep -rl 'content="noindex, nofollow"' --include='*.html' . | xargs -r sed -i 's/content="noindex, nofollow"/content="index, follow, max-image-preview:large"/'
+
+      - name: Publicar na hospedagem (FTP)
+        timeout-minutes: 20
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+          FILES: ${{ inputs.files }}
+        run: |
+          if [ -n "$FILES" ]; then node tools/deploy-ftp.mjs --files $FILES; else node tools/deploy-ftp.mjs; fi

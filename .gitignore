@@ -1,0 +1,22 @@
+# Material bruto do cliente (originais pesados; as versões otimizadas ficam em assets/)
+/Fotos/
+/Fotos-POA/
+/Imagens/
+/reels/
+
+# QA local (Playwright)
+.playwright-mcp/
+
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+*~
+
+# Node
+node_modules/
+package-lock.json
+
+# Segredos
+.env
+.env.local
