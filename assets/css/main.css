@@ -701,6 +701,12 @@ html:not(.js) .nav__link.is-ativo { color: var(--laranja-esc); }
 .card__ic--laranja { background: var(--laranja-esc); }
 .card__link { display: inline-flex; margin-top: 14px; color: var(--laranja-esc); font-weight: 800; text-underline-offset: 4px; }
 a.card { display: block; text-decoration: none; color: inherit; }
+/* variação roxa: card roxo, ícone laranja, textos brancos */
+.cards--roxo .card { background: var(--roxo); box-shadow: none; overflow: hidden; }
+.cards--roxo .card:hover { box-shadow: 0 24px 40px -22px rgba(72, 3, 140, .7); }
+.cards--roxo .card__ic { background: var(--laranja-esc); }
+.cards--roxo .card h3, .cards--roxo .card p { color: #fff; }
+.cards--roxo .card p { opacity: .9; }
 
 /* unidades: página com as duas abertas */
 .unidade + .unidade { margin-top: clamp(48px, 7vw, 80px); }
