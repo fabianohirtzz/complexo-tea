@@ -44,7 +44,8 @@ Fotos/ Fotos-POA/ Imagens/ reels/   originais do cliente (fora do git)
 
 ## Preview e deploy
 
-- **Preview:** GitHub Pages do repo privado `fabianohirtzz/complexo-tea` (branch `main`, raiz).
+- **Preview:** https://fabianohirtzz.github.io/complexo-tea/ (repo público `fabianohirtzz/complexo-tea`,
+  branch `main`, raiz). Público porque a conta não é GitHub Pro; nunca versionar credenciais.
   Todas as páginas têm `<meta name="robots" content="noindex, nofollow">` no preview.
 - **Produção:** workflow manual "Publicar em produção" (`.github/workflows/deploy-producao.yml`).
   Troca o noindex por index e sobe por FTP. Secrets: `FTP_HOST`, `FTP_USER`, `FTP_PASS`,
