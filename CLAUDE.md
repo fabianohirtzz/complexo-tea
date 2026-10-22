@@ -37,7 +37,13 @@ como referência de arquitetura e deploy.
 ## Estrutura
 
 ```
-index.html            home (única página por enquanto)
+index.html            home
+o-complexo/ especialidades/ atendimento/ unidades/ duvidas/ contato/ ouvidoria/
+politica-de-privacidade/   páginas internas (pasta/index.html = URL limpa, iguais às do WP antigo)
+404.html              erro (usa <base> calculado: funciona no Pages e em produção)
+partials/             topo.html (sprite + menu) e rodape.html, compartilhados
+tools/partials.mjs    aplica os partials em todas as páginas: RODAR após mudar partials/ ou criar página
+.htaccess             produção: https, 404, cache, redirects de URLs antigas do WP
 assets/css/main.css   todos os estilos
 assets/js/main.js     interações (vanilla, sem build)
 assets/img/poa|canoas fotos das unidades (WebP otimizado)
@@ -62,9 +68,11 @@ Fotos/ Fotos-POA/ Imagens/ reels/   originais do cliente (fora do git)
 
 ## Estado atual
 
-- **Fase:** home v1 pronta para aprovação no preview (2026-10-22).
-- **Próximo:** aprovação da home → páginas internas (O Complexo, Especialidades, Unidades,
-  Atendimento/Diagnóstico, FAQ, Ouvidoria, Contato, Privacidade) → blog (fase 2).
+- **Fase:** home aprovada (2026-10-22); páginas internas v1 no preview aguardando aprovação.
+- **Próximo:** aprovação das internas → secrets FTP → deploy de produção → blog (fase 2).
+- Páginas internas: topo `.hero--pagina` (disco roxo + ilustração + peças), migalhas com
+  BreadcrumbList, CTA laranja no fim. Ouvidoria envia por FormSubmit para atendimento@ (o
+  primeiro envio precisa ser ativado pelo link que o FormSubmit manda para esse e-mail).
 
 ## Pendências com o cliente
 
@@ -73,3 +81,6 @@ Fotos/ Fotos-POA/ Imagens/ reels/   originais do cliente (fora do git)
 - Logo em alta resolução (o atual tem 300×150 px) e, se possível, em SVG.
 - Fotos de Canoas em resolução maior (as atuais têm 375×500 px).
 - Credenciais FTP de produção.
+- E-mail da Ouvidoria (hoje vai para atendimento@complexotea.com.br) e e-mail do DPO.
+- Validar com a equipe o texto de "O que acontece na avaliação" (/atendimento/) e a Política de
+  Privacidade (revisão jurídica).

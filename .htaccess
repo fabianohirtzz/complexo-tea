@@ -1,0 +1,46 @@
+# Complexo TEA, site estático
+
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # sempre https://complexotea.com.br (sem www)
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://complexotea.com.br%{REQUEST_URI} [L,R=301]
+
+  # endereços do WordPress antigo que não têm página equivalente
+  RewriteRule ^blog/?$ / [L,R=301]
+  RewriteRule ^hello-world/?$ / [L,R=301]
+  RewriteRule ^(wp-sitemap.*|sitemap_index|post-sitemap|page-sitemap|category-sitemap)\.xml$ /sitemap.xml [L,R=301]
+  RewriteRule ^(feed|comments/feed)/?$ / [L,R=301]
+  RewriteRule ^(category|tag|author)/ / [L,R=301]
+
+  # /index.html vira só /
+  RewriteCond %{THE_REQUEST} \s/(.*/)?index\.html[\s?]
+  RewriteRule ^(.*/)?index\.html$ /$1 [L,R=301]
+</IfModule>
+
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .txt .xml
+
+# cache: páginas sempre frescas, mídia por mais tempo
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml
+</IfModule>

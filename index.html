@@ -28,8 +28,9 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/super-comic.woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
+<body data-pagina="inicio">
 
+  <!-- PARTIAL:topo -->
   <!-- Sprite: peça de quebra-cabeça da marca + ícones -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="peca" viewBox="0 0 24 24"><path d="M5.7 5.7 L10.24 5.7 C10.99 5.7 11.12 5.07 10.74 4.44 C10.11 3.56 10.49 2.3 12 2.3 C13.51 2.3 13.89 3.56 13.26 4.44 C12.88 5.07 13.01 5.7 13.76 5.7 L18.3 5.7 L18.3 9.73 C18.3 10.49 17.67 10.61 17.04 10.24 C16.16 9.61 14.9 9.98 14.9 11.5 C14.9 13.01 16.16 13.39 17.04 12.76 C17.67 12.38 18.3 12.5 18.3 13.26 L18.3 18.3 L13.26 18.3 C12.5 18.3 12.38 17.67 12.76 17.04 C13.39 16.16 13.01 14.9 11.5 14.9 C9.98 14.9 9.61 16.16 10.24 17.04 C10.61 17.67 10.49 18.3 9.73 18.3 L5.7 18.3 L5.7 13.76 C5.7 13.01 5.07 12.88 4.44 13.26 C3.56 13.89 2.3 13.51 2.3 12 C2.3 10.49 3.56 10.11 4.44 10.74 C5.07 11.12 5.7 10.99 5.7 10.24 L5.7 5.7Z"/></symbol>
@@ -44,6 +45,10 @@
     <symbol id="ic-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></symbol>
     <symbol id="ic-som" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></g></symbol>
     <symbol id="ic-mudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></g></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="ic-escudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="ic-olho" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
   </svg>
 
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -51,18 +56,19 @@
   <!-- ============================ NAV ============================ -->
   <header class="nav" data-nav>
     <div class="nav__bar">
-      <a class="nav__brand" href="index.html" aria-label="Complexo TEA, início">
+      <a class="nav__brand" href="./" aria-label="Complexo TEA, início">
         <img src="assets/img/marca/logo-site.png" alt="Complexo TEA" width="132" height="66" />
       </a>
       <nav class="nav__links" aria-label="Navegação principal" data-nav-links>
         <span class="nav__blob" aria-hidden="true" data-nav-blob></span>
-        <a class="nav__link" href="#complexo" data-cor="laranja">O Complexo</a>
-        <a class="nav__link" href="#como-funciona" data-cor="roxo">Como funciona</a>
-        <a class="nav__link" href="#especialidades" data-cor="verde">Especialidades</a>
-        <a class="nav__link" href="#unidades" data-cor="azul">Unidades</a>
-        <a class="nav__link" href="#duvidas" data-cor="amarelo">Dúvidas</a>
+        <a class="nav__link" href="o-complexo/" data-pagina="o-complexo">O Complexo</a>
+        <a class="nav__link" href="especialidades/" data-pagina="especialidades">Especialidades</a>
+        <a class="nav__link" href="atendimento/" data-pagina="atendimento">Atendimento</a>
+        <a class="nav__link" href="unidades/" data-pagina="unidades">Unidades</a>
+        <a class="nav__link" href="duvidas/" data-pagina="duvidas">Dúvidas</a>
+        <a class="nav__link" href="contato/" data-pagina="contato">Contato</a>
       </nav>
-      <a class="btn btn--roxo nav__cta" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" data-wa><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar avaliação</a>
+      <a class="btn btn--roxo nav__cta" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar avaliação</a>
       <button class="nav__burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile" data-burger>
         <span></span><span></span><span></span>
       </button>
@@ -77,18 +83,21 @@
       <svg class="menu__peca menu__peca--3"><use href="#peca"/></svg>
     </div>
     <nav class="menu__links" aria-label="Menu">
-      <a class="menu__link" href="#complexo" style="--i:0" data-cor="laranja">O Complexo</a>
-      <a class="menu__link" href="#como-funciona" style="--i:1" data-cor="roxo">Como funciona</a>
-      <a class="menu__link" href="#especialidades" style="--i:2" data-cor="verde">Especialidades</a>
-      <a class="menu__link" href="#unidades" style="--i:3" data-cor="azul">Unidades</a>
-      <a class="menu__link" href="#duvidas" style="--i:4" data-cor="amarelo">Dúvidas</a>
+      <a class="menu__link is-ativo" aria-current="page" href="./" style="--i:0" data-cor="roxo" data-pagina="inicio">Início</a>
+      <a class="menu__link" href="o-complexo/" style="--i:1" data-cor="laranja" data-pagina="o-complexo">O Complexo</a>
+      <a class="menu__link" href="especialidades/" style="--i:2" data-cor="verde" data-pagina="especialidades">Especialidades</a>
+      <a class="menu__link" href="atendimento/" style="--i:3" data-cor="azul" data-pagina="atendimento">Atendimento</a>
+      <a class="menu__link" href="unidades/" style="--i:4" data-cor="amarelo" data-pagina="unidades">Unidades</a>
+      <a class="menu__link" href="duvidas/" style="--i:5" data-cor="laranja" data-pagina="duvidas">Dúvidas</a>
+      <a class="menu__link" href="contato/" style="--i:6" data-cor="verde" data-pagina="contato">Contato</a>
     </nav>
-    <div class="menu__foot" style="--i:5">
+    <div class="menu__foot" style="--i:7">
       <a class="btn btn--laranja btn--full" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="btn__ic" aria-hidden="true"><use href="#ic-whats"/></svg>Agendar avaliação</a>
       <a class="menu__contato" href="tel:+555134111008"><svg aria-hidden="true"><use href="#ic-phone"/></svg>(51) 3411-1008</a>
       <a class="menu__contato" href="https://www.instagram.com/complexotea" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ic-insta"/></svg>@complexotea</a>
     </div>
   </div>
+  <!-- /PARTIAL:topo -->
 
   <main id="conteudo">
 
@@ -383,6 +392,7 @@
 
   </main>
 
+  <!-- PARTIAL:rodape -->
   <!-- ============================ RODAPÉ ============================ -->
   <footer class="rodape">
     <svg class="rodape__onda" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 V40 C 1200 90 960 -10 720 40 S 240 90 0 40 Z"/></svg>
@@ -420,6 +430,17 @@
         <a class="rodape__contato" href="https://www.instagram.com/complexotea" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ic-insta"/></svg>@complexotea</a>
       </div>
     </div>
+    <nav class="container rodape__nav" aria-label="Páginas do site">
+      <a href="./">Início</a>
+      <a href="o-complexo/">O Complexo</a>
+      <a href="especialidades/">Especialidades</a>
+      <a href="atendimento/">Atendimento</a>
+      <a href="unidades/">Unidades</a>
+      <a href="duvidas/">Dúvidas</a>
+      <a href="contato/">Contato</a>
+      <a href="ouvidoria/">Ouvidoria</a>
+      <a href="politica-de-privacidade/">Política de Privacidade</a>
+    </nav>
     <div class="container rodape__base">
       <p>Libertad Assistência Integral Ltda · CNPJ 14.762.530/0002-62</p>
       <p>© <span data-ano>2026</span> Complexo TEA. Todos os direitos reservados.</p>
@@ -430,5 +451,6 @@
   <a class="wa-flutuante" href="https://wa.me/555134111008?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Complexo%20TEA%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#ic-whats"/></svg></a>
 
   <script src="assets/js/main.js" defer></script>
+  <!-- /PARTIAL:rodape -->
 </body>
 </html>

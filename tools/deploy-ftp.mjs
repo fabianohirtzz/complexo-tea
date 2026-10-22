@@ -15,7 +15,7 @@ if (!FTP_HOST || !FTP_USER || !FTP_PASS) {
 }
 
 // arquivos que são do projeto, não do site
-const FORA = [/^\.github\//, /^tools\//, /^docs\//, /^CLAUDE\.md$/, /^README\.md$/, /^\.gitignore$/, /^\.nojekyll$/, /^package\.json$/];
+const FORA = [/^\.github\//, /^tools\//, /^partials\//, /^docs\//, /^CLAUDE\.md$/, /^README\.md$/, /^\.gitignore$/, /^\.nojekyll$/, /^package\.json$/];
 
 const fi = process.argv.indexOf('--files');
 const upload = fi > -1

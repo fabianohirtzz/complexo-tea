@@ -19,7 +19,8 @@ window.addEventListener('scroll', () => {
 const links = document.querySelector('[data-nav-links]');
 const blob = document.querySelector('[data-nav-blob]');
 const navLinks = [...links.querySelectorAll('.nav__link')];
-let linkAtivo = null;
+// a página atual vem marcada pelo tools/partials.mjs
+const linkAtivo = links.querySelector('.is-ativo');
 
 function moveBlob(link) {
   if (!link) { links.classList.remove('tem-blob'); return; }
@@ -34,19 +35,8 @@ navLinks.forEach((l) => {
   l.addEventListener('focus', () => moveBlob(l));
 });
 links.addEventListener('mouseleave', () => moveBlob(linkAtivo));
-
-// link ativo conforme a seção visível
-// todas as seções entram: as que não têm link no menu limpam o destaque
-const secoes = [...document.querySelectorAll('main > section')];
-const obsSecao = new IntersectionObserver((entradas) => {
-  entradas.forEach((e) => {
-    if (!e.isIntersecting) return;
-    navLinks.forEach((l) => l.classList.toggle('is-ativo', l.getAttribute('href') === '#' + e.target.id));
-    linkAtivo = navLinks.find((l) => l.classList.contains('is-ativo')) || null;
-    if (!links.matches(':hover')) moveBlob(linkAtivo);
-  });
-}, { rootMargin: '-45% 0px -50% 0px' });
-secoes.forEach((s) => obsSecao.observe(s));
+moveBlob(linkAtivo);
+document.fonts && document.fonts.ready.then(() => moveBlob(linkAtivo));
 
 /* ---------- Menu mobile ---------- */
 const burger = document.querySelector('[data-burger]');
@@ -216,6 +206,24 @@ if (carrossel) {
 
   posiciona(0);
 }
+
+/* ---------- Formulário (Ouvidoria): envia pelo FormSubmit e volta com ?enviado=1 ---------- */
+document.querySelectorAll('[data-form]').forEach((form) => {
+  const next = form.querySelector('[data-form-next]');
+  if (next) next.value = location.href.split(/[?#]/)[0] + '?enviado=1#manifestacao';
+  form.addEventListener('submit', (e) => {
+    if (!form.checkValidity()) { e.preventDefault(); form.reportValidity(); return; }
+    const btn = form.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+  });
+  if (/[?&]enviado=1\b/.test(location.search)) {
+    form.classList.add('is-enviado');
+    const ok = form.querySelector('[data-form-ok]');
+    ok.setAttribute('tabindex', '-1');
+    ok.focus({ preventScroll: true });
+  }
+});
 
 /* ---------- Ano no rodapé ---------- */
 document.querySelectorAll('[data-ano]').forEach((el) => { el.textContent = new Date().getFullYear(); });
